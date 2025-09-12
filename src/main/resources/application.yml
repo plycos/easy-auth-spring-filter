@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: 'aad-security-demo'
+  autoconfigure:
+    exclude: [
+      org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration,
+      org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+    ]
+server:
+  max-http-request-header-size: 30000
