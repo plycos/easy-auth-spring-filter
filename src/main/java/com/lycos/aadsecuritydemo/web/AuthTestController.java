@@ -15,7 +15,7 @@ import java.util.Map;
 public class AuthTestController {
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER')")
     public Map<String, Object> test() {
         Map<String, Object> map = new HashMap<>();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
