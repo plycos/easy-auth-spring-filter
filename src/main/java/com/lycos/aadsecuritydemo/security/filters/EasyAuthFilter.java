@@ -11,14 +11,14 @@ import java.util.Optional;
 @Component
 public class EasyAuthFilter extends PreAuthFilter {
 
-    private final UserProvider userProvider;
+    private final UserProvider easyAuthUserProvider;
 
-    public EasyAuthFilter(EasyAuthUserProvider userProvider) {
-        this.userProvider = userProvider;
+    public EasyAuthFilter(EasyAuthUserProvider easyAuthUserProvider) {
+        this.easyAuthUserProvider = easyAuthUserProvider;
     }
 
     @Override
     protected Optional<AuthenticatedUser> extractUser(HttpServletRequest request) {
-        return userProvider.provide(request);
+        return easyAuthUserProvider.provide(request);
     }
 }

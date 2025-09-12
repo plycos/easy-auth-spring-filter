@@ -12,10 +12,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class EasyAuthConfiguration implements AuthConfiguration {
 
-    private final PreAuthFilter preAuthFilter;
+    private final PreAuthFilter easyAuthFilter;
 
-    public EasyAuthConfiguration(EasyAuthFilter preAuthFilter) {
-        this.preAuthFilter = preAuthFilter;
+    public EasyAuthConfiguration(EasyAuthFilter easyAuthFilter) {
+        this.easyAuthFilter = easyAuthFilter;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class EasyAuthConfiguration implements AuthConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .formLogin(AbstractHttpConfigurer::disable)
-                .addFilterBefore(preAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(easyAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
                 .build();
     }

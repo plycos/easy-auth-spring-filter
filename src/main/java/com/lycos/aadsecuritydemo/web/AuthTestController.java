@@ -1,5 +1,6 @@
 package com.lycos.aadsecuritydemo.web;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import java.util.Map;
 public class AuthTestController {
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public Map<String, Object> test() {
         Map<String, Object> map = new HashMap<>();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

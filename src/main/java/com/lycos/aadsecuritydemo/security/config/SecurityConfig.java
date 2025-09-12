@@ -9,17 +9,17 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity()
+@EnableMethodSecurity
 public class SecurityConfig {
 
-    private final AuthConfiguration authConfiguration;
+    private final AuthConfiguration easyAuthConfiguration;
 
-    public SecurityConfig(EasyAuthConfiguration authConfiguration) {
-        this.authConfiguration = authConfiguration;
+    public SecurityConfig(EasyAuthConfiguration easyAuthConfiguration) {
+        this.easyAuthConfiguration = easyAuthConfiguration;
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return authConfiguration.configure(http);
+        return easyAuthConfiguration.configure(http);
     }
 }
