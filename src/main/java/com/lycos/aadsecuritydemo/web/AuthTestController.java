@@ -11,11 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/auth-test")
+@RequestMapping("/whoami")
 public class AuthTestController {
 
     @GetMapping
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public Map<String, Object> test() {
         Map<String, Object> map = new HashMap<>();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
